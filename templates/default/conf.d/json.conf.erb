@@ -1,0 +1,24 @@
+
+template(name="json" type="list") {
+  constant(value="{")
+  property(outname="@timestamp" name="timereported"
+           dateFormat="rfc3339" format="jsonf")
+  constant(value=", ")
+  property(outname="message"   name="msg" format="jsonf")
+  constant(value=", ")
+  constant(value="\"hostname\": \"<%=node[:hostname]%>\"")
+  constant(value=", ")
+  property(outname="severity"  name="syslogseverity-text" format="jsonf")
+  constant(value=", ")
+  property(outname="facility"  name="syslogfacility-text" format="jsonf")
+  constant(value=", ")
+  property(outname="program"   name="app-name" format="jsonf")
+  constant(value=", ")
+  property(outname="pid"       name="procid" format="jsonf")
+  constant(value=", ")
+  property(outname="tag"       name="syslogtag" format="jsonf")
+  constant(value=", ")
+  constant(value="\"format\":\"json1\"")
+  constant(value="}\n")
+}
+

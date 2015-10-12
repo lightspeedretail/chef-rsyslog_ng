@@ -1,0 +1,23 @@
+
+#
+# Global parameters
+#
+<%= ruleset "global", @global %>
+
+#
+# Main queue parameters
+#
+<%= ruleset "main_queue", @main_queue %>
+
+#
+# Module parameters
+# 
+<% @modules.map do |name, attrs| %>
+<%= ruleset "module", attrs %>
+<% end %>
+
+#
+# Pull in includes
+#
+$IncludeConfig <%= node[:rsyslog_ng][:includes_dir] %>/*.conf
+
