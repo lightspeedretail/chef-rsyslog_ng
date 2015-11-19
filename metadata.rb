@@ -4,7 +4,7 @@ maintainer_email 'jonathan@lightspeedpos.com'
 license          'Apache 2.0'
 description      'Installs/Configures rsyslog-ng'
 long_description 'Installs/Configures rsyslog-ng'
-version          '1.0.0'
+version          '1.1.0'
 
 depends "apt"
 

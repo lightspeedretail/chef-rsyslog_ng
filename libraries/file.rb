@@ -20,12 +20,12 @@ class Chef
 
       def initialize(*args)
         super
-        notifies :restart, "service[#{node[:rsyslog][:service_name]}]"
+        notifies :restart, "service[#{node[:rsyslog_ng][:service_name]}]"
       end
 
       def path
         path = ::File.join(
-          node[:rsyslog][:includes_dir],
+          node[:rsyslog_ng][:includes_dir],
           "#{priority}-#{filename}"
         )
         path = "#{path}.conf" unless filename =~ /\.conf$/

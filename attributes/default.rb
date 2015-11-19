@@ -1,20 +1,20 @@
 
-default[:rsyslog][:service_name]  = "rsyslog"
-default[:rsyslog][:user]          = "root"
-default[:rsyslog][:group]         = "adm"
+default[:rsyslog_ng][:service_name]  = "rsyslog"
+default[:rsyslog_ng][:user]          = "root"
+default[:rsyslog_ng][:group]         = "adm"
 
-default[:rsyslog][:config_dir]    = "/etc"
-default[:rsyslog][:includes_dir]  = "/etc/rsyslog.d"
-default[:rsyslog][:spool_dir]     = "/var/spool/rsyslog"
-default[:rsyslog][:log_dir]       = "/var/log"
+default[:rsyslog_ng][:config_dir]    = "/etc"
+default[:rsyslog_ng][:includes_dir]  = "/etc/rsyslog.d"
+default[:rsyslog_ng][:spool_dir]     = "/var/spool/rsyslog"
+default[:rsyslog_ng][:log_dir]       = "/var/log"
 
-default[:rsyslog][:global].tap do |global|
+default[:rsyslog_ng][:global].tap do |global|
   global["maxMessageSize"]  = "8k"
   global["preserveFQDN"]    = "off"
-  global["workDirectory"]   = node[:rsyslog][:spool_dir]
+  global["workDirectory"]   = node[:rsyslog_ng][:spool_dir]
   global["net.ipprotocol"]  = "ipv4-only"
 end
 
-default[:rsyslog][:main_queue].tap do |main|
+default[:rsyslog_ng][:main_queue].tap do |main|
 end
 

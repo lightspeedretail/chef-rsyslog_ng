@@ -4,7 +4,7 @@
 # and create / delete files within /etc/rsyslog.d
 #
 
-default[:rsyslog][:configs].tap do |configs|
+default[:rsyslog_ng][:configs].tap do |configs|
   configs[:imuxsock].tap do |conf|
     conf[:priority]   = 10
     conf[:source]     = "conf.d/ruleset.conf.erb"
@@ -55,7 +55,7 @@ default[:rsyslog][:configs].tap do |configs|
   end
 
   configs[:facility_logs].tap do |conf|
-    _logdir = node[:rsyslog][:log_dir]
+    _logdir = node[:rsyslog_ng][:log_dir]
 
     conf[:filename]   = "default"
     conf[:source]     = "conf.d/facility_logs.conf.erb"
