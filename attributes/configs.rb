@@ -1,6 +1,8 @@
 
 # Application configuration level directives
 #
+default[:rsyslog_ng][:remote_host] = nil
+
 default[:rsyslog_ng][:configs].tap do |configs|
   configs[:imuxsock].tap do |conf|
     conf[:priority]   = 10
@@ -27,12 +29,11 @@ default[:rsyslog_ng][:configs].tap do |configs|
   end
 
   configs[:remote].tap do |conf|
-    _host = "logstash.moni.cml-use1stag.link"
     conf[:priority] = 49
     conf[:enabled] = true
     conf[:variables] = {
       name: "action",
-      attrs:{ type: "omrelp", target: _host, port: "2514", template: "json", 
+      attrs:{ type: "omrelp", target: nil, port: "2514", template: "json", 
               "queue.maxdiskspace" => "1G", "queue.maxfilesize" => "10M",
               "queue.type" => "LinkedList", "queue.saveonshutdown" => "on",
               "queue.filename" => "remote", "action.resumeRetryCount" => -1
