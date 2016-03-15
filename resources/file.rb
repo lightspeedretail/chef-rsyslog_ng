@@ -18,7 +18,7 @@ property :cookbook,
   default: "rsyslog_ng"
 
 property :source,
-  kind_of: String,
+  kind_of: [String,Array],
   default: lazy { |r| [
     "default/conf.d/#{r.name}.erb",
     "default/#{r.name}.erb",
