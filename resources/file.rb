@@ -18,7 +18,7 @@ property :cookbook,
   default: "rsyslog_ng"
 
 property :source,
-  kind_of: String,
+  kind_of: [String,Array],
   default: lazy { |r| [
     "default/conf.d/#{r.name}.erb",
     "default/#{r.name}.erb",
@@ -32,6 +32,16 @@ property :variables,
 property :path,
   kind_of: String,
   default: lazy { |r| r.file_path }
+
+# Ensure that the resource is applied regardless of whether we are in why_run
+# or standard mode.
+#
+# Refer to chef/chef#4537 for this uncommon syntax
+action_class do
+  def whyrun_supported?
+    true
+  end
+end
 
 load_current_value do
   others = ::Dir.glob(file_path("*"))
