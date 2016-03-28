@@ -1,8 +1,15 @@
-# 1.0.0
+rsyslog_ng
+======
+# 2.0.2
+* Support whyrun mode
 
-Initial release of rsyslog-ng
+# 2.0.1
+* Bugfix release
 
 # 2.0.0
+* Upgrade to Chef 12.5
 
-Upgrade to Chef 12.5
+# 1.0.0
+* Initial release of rsyslog-ng
+
 
