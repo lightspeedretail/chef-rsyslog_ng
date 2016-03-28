@@ -1,8 +1,11 @@
 
-# Application configuration level directives
-#
+# Short-hand to configure the remote host to log to
 default[:rsyslog_ng][:remote_host] = nil
 
+# Rsyslog configurations that drive the resources
+# - In some instances we will be redeclaring configuration files that would
+# usually be deployed by the package so as to ensure that we own them and that
+# they are valid in rsyslog8
 default[:rsyslog_ng][:configs].tap do |configs|
   configs[:imuxsock].tap do |conf|
     conf[:priority]   = 10
