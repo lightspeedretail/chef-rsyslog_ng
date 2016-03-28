@@ -1,10 +1,12 @@
 
+# On Ubuntu, rsyslog8 requires a PPA to be installed
 apt_repository "rsyslog" do
   uri           "ppa:adiscon/v8-stable"
   components    ["main"]
   distribution  node[:lsb][:codename]
 end
 
+# Install/Upgrade rsyslog and ensure that we are not prevented by config files
 package "rsyslog" do
   version node[:rsyslog_ng][:version] if node[:rsyslog_ng][:version]
   options [
@@ -14,6 +16,7 @@ package "rsyslog" do
   action [:install, :upgrade]
 end
 
+# Optionally install the required relp package
 if %w(imrelp omrelp).any? { |v|  node[:rsyslog_ng][:modules].keys.include?(v) }
   package "rsyslog-relp" 
 end
@@ -26,6 +29,7 @@ end
   end
 end
 
+# Deploy hte main configuration file
 template ::File.join(node[:rsyslog_ng][:config_dir], "rsyslog.conf") do
   helpers   RsyslogNg::TemplateHelper
   variables global: node[:rsyslog_ng][:global],

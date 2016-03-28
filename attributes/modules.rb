@@ -1,6 +1,4 @@
 
-# Module level configuration 
-#
 default[:rsyslog_ng][:modules][:imklog].tap do |config|
   config["load"]   = "imklog"
 end
