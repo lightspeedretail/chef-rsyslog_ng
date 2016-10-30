@@ -10,6 +10,12 @@ default[:rsyslog_ng][:includes_dir]  = "/etc/rsyslog.d"
 default[:rsyslog_ng][:spool_dir]     = "/var/spool/rsyslog"
 default[:rsyslog_ng][:log_dir]       = "/var/log"
 
+default[:rsyslog_ng][:apt_repository].tap do |config|
+  config[:uri] = 'ppa:adiscon/v8-stable'
+  config[:components] = %w(main)
+  config[:distribution] = node[:lsb][:codename]
+end
+
 default[:rsyslog_ng][:global].tap do |global|
   global["maxMessageSize"]  = "8k"
   global["preserveFQDN"]    = "off"

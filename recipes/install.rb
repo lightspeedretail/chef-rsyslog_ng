@@ -1,9 +1,9 @@
 
 # On Ubuntu, rsyslog8 requires a PPA to be installed
 apt_repository "rsyslog" do
-  uri           "ppa:adiscon/v8-stable"
-  components    ["main"]
-  distribution  node[:lsb][:codename]
+  node['rsyslog_ng']['apt_repository'].each do |k,v|
+    send(k, v)
+  end
 end
 
 # Install/Upgrade rsyslog and ensure that we are not prevented by config files
