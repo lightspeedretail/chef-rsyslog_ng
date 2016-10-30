@@ -6,7 +6,7 @@ source_url 'https://github.com/JonathanSerafini/chef-rsyslog_ng'
 license 'apachev2'
 description 'Installs and configures rsyslog8 on ubuntu'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '2.0.2'
+version '2.0.3'
 chef_version '>= 12.7'
 depends 'apt'
 

@@ -1,15 +1,24 @@
-rsyslog_ng
-======
-# 2.0.2
+rsyslog\_ng
+==========
+
+v2.0.3
+------
+* Move PPA values to attributes
+
+v2.0.2
+------
 * Support whyrun mode
 
-# 2.0.1
+v2.0.1
+------
 * Bugfix release
 
-# 2.0.0
+v2.0.0
+------
 * Upgrade to Chef 12.5
 
-# 1.0.0
+v1.0.0
+------
 * Initial release of rsyslog-ng
 
 
