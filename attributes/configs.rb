@@ -67,7 +67,7 @@ default[:rsyslog_ng][:configs].tap do |configs|
         "user.*"        => "-#{_logdir}/user.log",
         "mail.*"        => "-#{_logdir}/mail.log",
         "news.*"        => "-#{_logdir}/news.log",
-        "*.=info;*.=notice;*.=warn;auth,authpriv.none;cron,daemon.none;mail,news.none" => "-#{_logdir}/messages"
+        "auth,authpriv.none;cron,daemon.none;mail,news.none" => "-#{_logdir}/messages"
         }
     }
   end
