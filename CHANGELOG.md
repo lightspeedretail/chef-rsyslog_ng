@@ -3,7 +3,7 @@ rsyslog\_ng
 
 v2.1.1
 ------
-* Because if rsyslog does install/upgrade, rsyslog-relp should do the same!
+* Because if rsyslog-relp does install, rsyslog should do the same!
 
 v2.1.0
 ------

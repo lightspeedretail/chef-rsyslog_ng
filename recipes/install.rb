@@ -13,14 +13,12 @@ package "rsyslog" do
     "-o Dpkg::Options::='--force-confold'",
     "-o Dpkg::Options::='--force-overwrite'"
   ].join(" ")
-  action [:install, :upgrade]
+  action [:install]
 end
 
 # Optionally install the required relp package
 if %w(imrelp omrelp).any? { |v|  node[:rsyslog_ng][:modules].keys.include?(v) }
-  package "rsyslog-relp"  do
-    action
-  end [:install, :upgrade]
+  package "rsyslog-relp"
 end
 
 %w(includes_dir spool_dir).each do |dirname|
