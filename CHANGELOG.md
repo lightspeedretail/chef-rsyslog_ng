@@ -1,6 +1,10 @@
 rsyslog\_ng
 ==========
 
+v2.1.1
+------
+* Because if rsyslog-relp does install, rsyslog should do the same!
+
 v2.1.0
 ------
 * Removed most of what was going to /var/log/messages to lower log duplication since everything goes to /var/log/syslog
