@@ -18,7 +18,9 @@ end
 
 # Optionally install the required relp package
 if %w(imrelp omrelp).any? { |v|  node[:rsyslog_ng][:modules].keys.include?(v) }
-  package "rsyslog-relp" 
+  package "rsyslog-relp"  do
+    action
+  end [:install, :upgrade]
 end
 
 %w(includes_dir spool_dir).each do |dirname|
